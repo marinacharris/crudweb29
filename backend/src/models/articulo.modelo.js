@@ -1,11 +1,11 @@
 const {Schema, model} = require('mongoose');
 
 const articuloSchema = new Schema ({
-    nombre: {type: String, require: true},
+    titulo: {type: String, require: true},
+    imagen: String,
+    precio: String,
     descripcion: String,
-    precio: Number,
-    stock: Number,
-    linkfoto: String
+    stock: Number
 
 });
 
