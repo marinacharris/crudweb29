@@ -25,6 +25,11 @@ articulosCtrl.getArticulo = async(req,res)=>{
     res.json(articulo)
 }
 
+articulosCtrl.getArticulop = async(req,res)=>{
+    const articulo = await Articulo.findByprecio(req.params.precio)
+    res.json(articulo)
+}
+
 articulosCtrl.deleteArticulo = async(req, res)=>{
     await Articulo.findByIdAndDelete(req.params.id)
     res.json('Artículo eliminado')
