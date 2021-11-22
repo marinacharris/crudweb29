@@ -1,13 +1,16 @@
 const Usuario = require("../models/user.modelo");
+const Role = require("../models/roles.modelo")
 const userCtrl = {};
 
 userCtrl.crearUsuario = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password, roles } = req.body;
+    const rolesFound = await Role.find({name:{$in: roles}})
     const user = new Usuario({
       username,
       email,
       password,
+      roles: rolesFound.map((role)=>role._id),
     });
 
     //ecriptar el password
@@ -20,6 +23,7 @@ userCtrl.crearUsuario = async (req, res) => {
       _id: savedUser._id,
       username: savedUser.username,
       email: savedUser.email,
+      roles: savedUser.roles,
     });
   } catch(error) {
       console.log(error)
