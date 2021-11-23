@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const init = require('./libs/initSetup');
+
+
+init.createRoles()
 
 //settings
 app.set('port', process.env.PORT || 4000)

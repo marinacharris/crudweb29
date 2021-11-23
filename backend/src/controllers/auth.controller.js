@@ -13,6 +13,7 @@ authCtrl.signup = async (req, res) => {
       email,
       password: await User.encryptPassword(password),
     });
+    console.log(newUser);
     //verificar roles
     if (req.body.roles) {
       const foundRoles = await Role.find({ name: { $in: roles } });
