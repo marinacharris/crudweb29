@@ -5,6 +5,7 @@ const init = require('./libs/initSetup');
 
 
 init.createRoles()
+init.createAdmin()
 
 //settings
 app.set('port', process.env.PORT || 4000)
