@@ -27,7 +27,6 @@ validar.checkDuplicateUsernameOrEmail = async(req, res, next)=>{
 }
 
 validar.checkRolesExisted = (req, res, next)=>{
-    const ROLES = ["user","admin"]
     if (req.body.roles){
         for (let i=0; i< req.body.roles.length; i++){
             if(!ROLES.includes(req.body.roles[i])){

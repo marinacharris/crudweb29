@@ -54,8 +54,9 @@ authCtrl.signin = async(req, res)=>{
             message: "Clave incorrecta"
         })
 
-    const token = jwt.sign({id: userFound._id},config.SECRET,{expireIn:86400})
+    const token = jwt.sign({id: userFound._id},config.SECRET,{expiresIn:86400})
     res.json({token})
+    
 
     }catch(error){
         console.log(error)
