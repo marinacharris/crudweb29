@@ -1,17 +1,16 @@
 const {Router} = require('express');
 const router  = Router();
 const { getArticulos, getArticulop, createArticulo, getArticulo, deleteArticulo, updateArticulo } =  require('../controllers/articulos.controller');
+const {autorizar, validar} = require ('../middlewares')
 
 router.route('/')
     .get(getArticulos)
-    .post(createArticulo);
+    .post([autorizar.verifyToken, autorizar.isAdmin], createArticulo);
 
 router.route('/:id')
     .get(getArticulo)
-    .delete(deleteArticulo)
-    .put(updateArticulo)
+    .delete([autorizar.verifyToken, autorizar.isAdmin], deleteArticulo)
+    .put([autorizar.verifyToken, autorizar.isAdmin], updateArticulo)
 
-router.route('/:precio')
-    .get(getArticulop)
 
 module.exports = router;
