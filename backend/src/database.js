@@ -1,6 +1,6 @@
 const mongoose = require('mongoose'); 
 
-const URI = 'mongodb://localhost/crudweb29';
+const URI = 'mongodb+srv://fullstack:<fullstac123>@cluster0.t6bow.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 mongoose.connect(URI);
 
